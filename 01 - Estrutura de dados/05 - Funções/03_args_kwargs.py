@@ -1,11 +1,33 @@
+def soma(*args):
+    total = 0
+    for num in args:
+        total += num
+    return total
+
+print(soma(1, 2, 3))  # Saída: 6
+print(soma(5, 10, 15, 20))  # Saída: 50
+
+
+def imprimir_info(**kwargs):
+    for chave, valor in kwargs.items():
+        print(f'{chave}: {valor}')
+
+imprimir_info(nome='João', idade=30, cidade='São Paulo')
+# Saída:
+# nome: João
+# idade: 30
+# cidade: São Paulo
+
+
 def exibir_poema(data_extenso, *args, **kwargs):
     texto = "\n".join(args)
-    meta_dados = "\n".join([f"{chave.title()}: {valor}" for chave, valor in kwargs.items()])
+    meta_dados = "\n".join([f"{chave.title()}: {valor}" 
+                            for chave, valor in kwargs.items()])
     mensagem = f"{data_extenso}\n\n{texto}\n\n{meta_dados}"
     print(mensagem)
 
-
 exibir_poema(
+    "Domingo, 06 de outubro de 2024",
     "Zen of Python",
     "Beautiful is better than ugly.",
     "Explicit is better than implicit.",
